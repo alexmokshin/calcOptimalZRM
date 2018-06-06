@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "calcOptimalZRM", "calcOptimalZRM\calcOptimalZRM.csproj", "{375A3A21-65B1-4A32-80F6-5A07F8F590CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestCalcZRM", "UnitTestCalcZRM\UnitTestCalcZRM.csproj", "{F473AE2B-7712-4DAE-AB7C-9B83FB975139}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{375A3A21-65B1-4A32-80F6-5A07F8F590CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{375A3A21-65B1-4A32-80F6-5A07F8F590CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{375A3A21-65B1-4A32-80F6-5A07F8F590CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F473AE2B-7712-4DAE-AB7C-9B83FB975139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F473AE2B-7712-4DAE-AB7C-9B83FB975139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F473AE2B-7712-4DAE-AB7C-9B83FB975139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F473AE2B-7712-4DAE-AB7C-9B83FB975139}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

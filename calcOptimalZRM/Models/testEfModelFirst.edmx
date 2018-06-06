@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище ReportModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Report.dbo.DC_NSI_Pech" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="DC_NSI_Pech">
+          <Key>
+            <PropertyRef Name="PechId" />
+            <PropertyRef Name="actual" />
+          </Key>
+          <Property Name="PechId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="actual" Type="bit" Nullable="false" />
+        </EntityType>
+        <Function Name="OptShihtDC_HimZolaKoks_Load" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dt" Type="smalldatetime" Mode="In" />
+          <Parameter Name="debug" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="OptShihtDC_Param_Load" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dt" Type="smalldatetime" Mode="In" />
+          <Parameter Name="debug" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="OptShihtDC_Shihta_Load" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dtFirstDay" Type="smalldatetime" Mode="In" />
+          <Parameter Name="NPech" Type="tinyint" Mode="In" />
+          <Parameter Name="MatType" Type="smallint" Mode="In" />
+          <Parameter Name="debug" Type="tinyint" Mode="In" />
+        </Function>
+        <EntityContainer Name="Хранилище ReportModelContainer">
+          <EntitySet Name="DC_NSI_Pech" EntityType="Self.DC_NSI_Pech" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DC_NSI_Pech].[PechId] AS [PechId], 
+    [DC_NSI_Pech].[Name] AS [Name], 
+    [DC_NSI_Pech].[actual] AS [actual]
+    FROM [dbo].[DC_NSI_Pech] AS [DC_NSI_Pech]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ReportModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="testReportEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="OptShihtDC_HimZolaKoks_Load">
+            <Parameter Name="dt" Mode="In" Type="DateTime" />
+            <Parameter Name="debug" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="OptShihtDC_Param_Load" ReturnType="Collection(ReportModel.OptShihtDC_Param_Load_Result)">
+            <Parameter Name="dt" Mode="In" Type="DateTime" />
+            <Parameter Name="debug" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="OptShihtDC_Shihta_Load" ReturnType="Collection(ReportModel.OptShihtDC_Shihta_Load_Result)">
+            <Parameter Name="dtFirstDay" Mode="In" Type="DateTime" />
+            <Parameter Name="NPech" Mode="In" Type="Byte" />
+            <Parameter Name="MatType" Mode="In" Type="Int16" />
+            <Parameter Name="debug" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <EntitySet Name="DC_NSI_Pech" EntityType="ReportModel.DC_NSI_Pech" />
+        </EntityContainer>
+        <ComplexType Name="OptShihtDC_Param_Load_Result">
+          <Property Type="Byte" Name="IdDescr" Nullable="false" />
+          <Property Type="DateTime" Name="dtFirstDay" Nullable="false" Precision="16" />
+          <Property Type="String" Name="Descr" Nullable="false" MaxLength="100" />
+          <Property Type="Single" Name="sDP1" Nullable="true" />
+          <Property Type="Single" Name="sDP2" Nullable="true" />
+          <Property Type="Single" Name="sDP3" Nullable="true" />
+          <Property Type="Single" Name="sDP4" Nullable="true" />
+          <Property Type="Single" Name="sDP5" Nullable="true" />
+          <Property Type="Single" Name="sDP6" Nullable="true" />
+          <Property Type="Single" Name="sDP7" Nullable="true" />
+          <Property Type="Single" Name="sDP8" Nullable="true" />
+          <Property Type="Single" Name="sDP9" Nullable="true" />
+          <Property Type="Single" Name="sDP10" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="OptShihtDC_Shihta_Load_Result">
+          <Property Type="DateTime" Name="dtFirstDay" Nullable="false" Precision="16" />
+          <Property Type="Byte" Name="Номер_печи" Nullable="false" />
+          <Property Type="Int16" Name="Код_материала" Nullable="true" />
+          <Property Type="Byte" Name="Тип_материала" Nullable="true" />
+          <Property Type="String" Name="Материал" Nullable="true" MaxLength="30" />
+          <Property Type="Decimal" Name="Расход__кг_т_чугуна" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Доля" Nullable="true" Precision="7" Scale="4" />
+          <Property Type="Decimal" Name="Fe___" Nullable="true" Precision="6" Scale="3" />
+          <Property Type="Decimal" Name="FeO___" Nullable="true" Precision="6" Scale="3" />
+          <Property Type="Decimal" Name="Fe2O3___" Nullable="true" Precision="6" Scale="3" />
+          <Property Type="Decimal" Name="SiO2___" Nullable="true" Precision="6" Scale="3" />
+          <Property Type="Decimal" Name="Al2O3___" Nullable="true" Precision="6" Scale="3" />
+          <Property Type="Decimal" Name="CaO___" Nullable="true" Precision="6" Scale="3" />
+          <Property Type="Decimal" Name="MgO___" Nullable="true" Precision="6" Scale="3" />
+          <Property Type="Decimal" Name="P___" Nullable="true" Precision="6" Scale="3" />
+          <Property Type="Decimal" Name="S___" Nullable="true" Precision="6" Scale="3" />
+          <Property Type="Decimal" Name="MnO___" Nullable="true" Precision="6" Scale="3" />
+          <Property Type="Decimal" Name="ZnO___" Nullable="true" Precision="6" Scale="3" />
+          <Property Type="Decimal" Name="PPP___" Nullable="true" Precision="6" Scale="3" />
+          <Property Type="Decimal" Name="H2O___" Nullable="true" Precision="6" Scale="3" />
+          <Property Type="Decimal" Name="TiO2___" Nullable="true" Precision="6" Scale="3" />
+          <Property Type="Decimal" Name="Cr___" Nullable="true" Precision="6" Scale="3" />
+        </ComplexType>
+        <EntityType Name="DC_NSI_Pech">
+          <Key>
+            <PropertyRef Name="PechId" />
+            <PropertyRef Name="actual" />
+          </Key>
+          <Property Name="PechId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="actual" Type="Boolean" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ReportModelContainer" CdmEntityContainer="testReportEntities" >
+          <FunctionImportMapping FunctionImportName="OptShihtDC_HimZolaKoks_Load" FunctionName="Хранилище ReportModel.OptShihtDC_HimZolaKoks_Load" />
+          <FunctionImportMapping FunctionImportName="OptShihtDC_Param_Load" FunctionName="Хранилище ReportModel.OptShihtDC_Param_Load">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ReportModel.OptShihtDC_Param_Load_Result">
+                <ScalarProperty Name="IdDescr" ColumnName="IdDescr" />
+                <ScalarProperty Name="dtFirstDay" ColumnName="dtFirstDay" />
+                <ScalarProperty Name="Descr" ColumnName="Descr" />
+                <ScalarProperty Name="sDP1" ColumnName="sDP1" />
+                <ScalarProperty Name="sDP2" ColumnName="sDP2" />
+                <ScalarProperty Name="sDP3" ColumnName="sDP3" />
+                <ScalarProperty Name="sDP4" ColumnName="sDP4" />
+                <ScalarProperty Name="sDP5" ColumnName="sDP5" />
+                <ScalarProperty Name="sDP6" ColumnName="sDP6" />
+                <ScalarProperty Name="sDP7" ColumnName="sDP7" />
+                <ScalarProperty Name="sDP8" ColumnName="sDP8" />
+                <ScalarProperty Name="sDP9" ColumnName="sDP9" />
+                <ScalarProperty Name="sDP10" ColumnName="sDP10" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="OptShihtDC_Shihta_Load" FunctionName="Хранилище ReportModel.OptShihtDC_Shihta_Load">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ReportModel.OptShihtDC_Shihta_Load_Result">
+                <ScalarProperty Name="dtFirstDay" ColumnName="dtFirstDay" />
+                <ScalarProperty Name="Номер_печи" ColumnName="Номер печи" />
+                <ScalarProperty Name="Код_материала" ColumnName="Код материала" />
+                <ScalarProperty Name="Тип_материала" ColumnName="Тип материала" />
+                <ScalarProperty Name="Материал" ColumnName="Материал" />
+                <ScalarProperty Name="Расход__кг_т_чугуна" ColumnName="Расход, кг/т чугуна" />
+                <ScalarProperty Name="Доля" ColumnName="Доля" />
+                <ScalarProperty Name="Fe___" ColumnName="Fe, %" />
+                <ScalarProperty Name="FeO___" ColumnName="FeO, %" />
+                <ScalarProperty Name="Fe2O3___" ColumnName="Fe2O3, %" />
+                <ScalarProperty Name="SiO2___" ColumnName="SiO2, %" />
+                <ScalarProperty Name="Al2O3___" ColumnName="Al2O3, %" />
+                <ScalarProperty Name="CaO___" ColumnName="CaO, %" />
+                <ScalarProperty Name="MgO___" ColumnName="MgO, %" />
+                <ScalarProperty Name="P___" ColumnName="P, %" />
+                <ScalarProperty Name="S___" ColumnName="S, %" />
+                <ScalarProperty Name="MnO___" ColumnName="MnO, %" />
+                <ScalarProperty Name="ZnO___" ColumnName="ZnO, %" />
+                <ScalarProperty Name="PPP___" ColumnName="PPP, %" />
+                <ScalarProperty Name="H2O___" ColumnName="H2O, %" />
+                <ScalarProperty Name="TiO2___" ColumnName="TiO2, %" />
+                <ScalarProperty Name="Cr___" ColumnName="Cr, %" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="DC_NSI_Pech">
+            <EntityTypeMapping TypeName="ReportModel.DC_NSI_Pech">
+              <MappingFragment StoreEntitySet="DC_NSI_Pech">
+                <ScalarProperty Name="actual" ColumnName="actual" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PechId" ColumnName="PechId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

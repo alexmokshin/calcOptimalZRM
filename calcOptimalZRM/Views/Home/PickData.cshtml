@@ -1,0 +1,58 @@
+﻿
+@model calcOptimalZRM.Models.DomCehModel
+
+@{
+    ViewBag.Title = "PickData";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*<!-- Include jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+
+<script>
+    $(document).ready(function () {
+        var date_input = $('input[name="date"]'); //our date input has the name "date"
+        var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+        date_input.datepicker({
+            format: 'mm/dd/yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        })
+    })
+</script>*@
+@*<script type="text/javascript">
+    $(function () { // will trigger when the document is ready
+        $('.datepicker').datepicker(); //Initialise any date pickers
+    });
+</script>*@
+
+<h2>Выберите печь и дату</h2> 
+@using (Html.BeginForm("CalcZHRM", "Home", FormMethod.Post))
+{
+    <fieldset>
+        <h3>Выберите дату</h3>
+        <h3>@Html.DropDownList("Monthes")</h3><h3>@Html.TextBox("YearPick", "2014", htmlAttributes: new { type = "datefield" })</h3>
+        @*<div class="input-group date" data-provide="datepicker">
+            <input type="text" class="form-control">
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
+            </div>
+        </div>*@
+        <h3>Выберите печь</h3>
+        <h3>@Html.DropDownList("PechType")</h3>
+        <div class="form-group input-group-sm">
+            @*@Html.LabelFor(model => model.BirthDate)
+            @Html.TextBoxFor(model => model.BirthDate, new { @class = "form-control datepicker", placeholder = "Enter Drop-off date here..." })
+            @Html.ValidationMessageFor(model => model.BirthDate)*@
+            @*@Html.DatePickerFor(model => model.BirthDate,null)*@
+        </div>
+        <p>
+            <input type="submit" value="Рассчитать" />
+            @*@Html.ActionLink("Рассчитать", "CalcZHRM", "Home");*@
+        </p>
+    </fieldset>
+}

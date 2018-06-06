@@ -1,0 +1,159 @@
+﻿@model IEnumerable<calcOptimalZRM.Models.OptShihtDC_Shihta_Load_Result>
+
+@{
+    ViewBag.Title = "DbModel";
+}
+
+<h2>DbModel</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.dtFirstDay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Номер_печи)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Код_материала)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Тип_материала)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Материал)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Расход__кг_т_чугуна)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Доля)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fe___)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FeO___)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fe2O3___)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SiO2___)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Al2O3___)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CaO___)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MgO___)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.P___)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.S___)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MnO___)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZnO___)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PPP___)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.H2O___)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TiO2___)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cr___)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in ViewBag.shload) {
+    <tr>
+        <td>
+            @item.dtFirstDay
+        </td>
+        <td>
+            @item.Номер_печи
+        </td>
+        <td>
+            @item.Код_материала
+        </td>
+        <td>
+            @item.Тип_материала
+        </td>
+        <td>
+            @item.Материал
+        </td>
+        <td>
+            @item.Расход__кг_т_чугуна
+        </td>
+        <td>
+            @item.Доля
+        </td>
+        <td>
+            @item.Fe___
+        </td>
+        <td>
+            @item.FeO___
+        </td>
+        <td>
+            @item.Fe2O3___
+        </td>
+        <td>
+            @item.SiO2___
+        </td>
+        <td>
+            @item.Al2O3___
+        </td>
+        <td>
+            @item.CaO___
+        </td>
+        <td>
+            @item.MgO___
+        </td>
+        <td>
+            @item.P___
+        </td>
+        <td>
+            @item.S___
+        </td>
+        <td>
+            @item.MnO___
+        </td>
+        <td>
+            @item.ZnO___
+        </td>
+        <td>
+            @item.PPP___
+        </td>
+        <td>
+            @item.H2O___
+        </td>
+        <td>
+            @item.TiO2___
+        </td>
+        <td>
+            @item.Cr___
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

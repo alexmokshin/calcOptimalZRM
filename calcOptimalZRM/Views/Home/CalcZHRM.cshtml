@@ -1,0 +1,245 @@
+﻿@model calcOptimalZRM.Models.DomCehModel
+
+@{
+    /**/
+
+    ViewBag.Title = "CalcZHRM";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Вариант 1</h3>
+@using (Html.BeginForm("DbModel", "Home"))
+{
+    <input type="submit" value="Перейти на страницу модели" id="bt_CalcZhrm" background=@Server.MapPath("~/Content/"+"spirin.jpg") />
+}
+<h3>Вариант 2</h3>
+@Html.ActionLink("Перейти на страницу модели", "DbModel", "Home");
+<h3>Вариант 3</h3>
+@Html.ActionLink("Перейти на страницу модели", "DbModel", null, new { @class= ".btn-primary-new" })
+<h3>Вариант 4</h3>
+<a href='@Url.Action("DbModel", "Home")'>
+    <img src="~/Content/spirin.jpg" height="200" width="200" />
+    <alt>Рассчитать</alt>
+    
+
+
+</a>
+@using (Html.BeginForm("CalcZHRM", "Home", FormMethod.Get))
+{
+    <h3>Расчет оптимального соотношения расходов агломерата ММК и окатышей ССГОК в доменную шихту</h3>
+    <table>
+        <tr>
+
+            <td><b>Показатель, ед. измерения</b></td>
+            <td><b>Величина</b></td>
+        </tr>
+        <tr>
+            <td>Производительность доменной печи, т/сутки</td>
+            <td>
+                @Html.TextBox("proizv", "3344,10")
+            </td>
+        </tr>
+        <tr>
+            <td>Суммарный удельный расход кокса, кг/т чугуна</td>
+            <td>
+                @Html.TextBox("summudrashkoks", "440,40")
+            </td>
+        </tr>
+        <tr>
+            <td>Содержание серы в чугуне, %</td>
+            <td>
+                @Html.TextBox("seravchugun", "0,024")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Доля агломерата ММК
+            </td>
+            <td>
+                @Html.TextBox("aglMMK", "0,647")
+            </td>
+        </tr>
+        <tr>
+            <td>Содержание Al2O3 в шлаке, %</td>
+            <td>
+                @Html.TextBox("alshlak", "12,690")
+            </td>
+        </tr>
+        <tr>
+            <td>Содержание MgO в шлаке, %</td>
+            <td>
+                @Html.TextBox("mgoshlak", "8,800")
+            </td>
+        </tr>
+    </table>
+    <h3>Ввод ограничений на поиск оптимальных параметров (в проектном периоде):</h3>
+    <table>
+        <tr>
+
+            <td><b>Показатель, ед. измерения</b></td>
+            <td><b>Величина в проектном периоде</b></td>
+            <td><b>минимум</b></td>
+            <td><b>максимум</b></td>
+            <td><b>задано</b></td>
+        </tr>
+        <tr>
+            <td>
+                Вязкость конечного шлака при 1550 С, пуаз
+            </td>
+            <td>
+                @Html.TextBox("vzskkonshlak", "2,67")
+            </td>
+            <td>
+                @Html.TextBox("vzskkonshlakmin", "1,95")
+            </td>
+            <td>
+                @Html.TextBox("vzskkonshlakmax", "2,000")
+            </td>
+            <td>
+                @Html.TextBox("vzskkonshlakzad", null)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Основность конечного шлака (CaO/SiO2)
+            </td>
+            <td>
+                @Html.TextBox("osnkonshlack", "1,008")
+            </td>
+            <td>
+                @Html.TextBox("onskonshlakmin", "1,000")
+            </td>
+            <td>
+                @Html.TextBox("osnkonshlakmax", "1,170")
+            </td>
+            <td>
+                @Html.TextBox("onskonshlakkzad", "1.008")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Вязкость конечного шлака при 1450 С, пуаз
+            </td>
+            <td>
+                @Html.TextBox("vzskkonshlak", "5,050")
+            </td>
+            <td>
+                @Html.TextBox("vzskkonshlakmin", "2,000")
+            </td>
+            <td>
+                @Html.TextBox("vzskkonshlakmax", "6,500")
+            </td>
+            <td>
+                @Html.TextBox("vzskkonshlakzad", null)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Градиент вязкости конечного шлака, пуаз/град. С
+            </td>
+            <td>
+                @Html.TextBox("vzskkonshlak", "0,179")
+            </td>
+            <td>
+                @Html.TextBox("vzskkonshlakmin", "0,100")
+            </td>
+            <td>
+                @Html.TextBox("vzskkonshlakmax", "0,350")
+            </td>
+            <td>
+                @Html.TextBox("vzskkonshlakzad", null)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Доля агломерата ММК
+            </td>
+            <td>
+                @Html.TextBox("vzskkonshlak", "0,647")
+            </td>
+            <td>
+                @Html.TextBox("vzskkonshlakmin", "0,300")
+            </td>
+            <td>
+                @Html.TextBox("vzskkonshlakmax", "1,000")
+            </td>
+            <td>
+                @Html.TextBox("vzskkonshlakzad", null)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Сумма долей всех ЖРМ
+            </td>
+            <td>
+                @Html.TextBox("vzskkonshlak", "1,000")
+            </td>
+            <td>
+                @Html.TextBox("vzskkonshlakmin", null)
+            </td>
+            <td>
+                @Html.TextBox("vzskkonshlakmax", null)
+            </td>
+            <td>
+                @Html.TextBox("vzskkonshlakzad", "1,000")
+            </td>
+        </tr>
+    </table>
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Учитывать ограничения</h3>
+            <h4>Вязкость конечного шлака при температуре шлака @Html.RadioButton("ogr", "1")</h4>
+            <h4>Основность конечного шлака, CaO\SiO2 (диапазон или задано) @Html.RadioButton("ogr", "2")</h4>
+            <h4>Вязкость конечного шлака при температуре 1450С @Html.RadioButton("ogr", "3")</h4>
+            <h4>Градиент вязкости конечного шлака @Html.RadioButton("ogr", "4")</h4>
+            <h4>Доля агломерата ММК @Html.RadioButton("ogr", "5")</h4>
+        </div>
+        <div class="col-md-4">
+            <h3>Цель</h3>
+            <h4>Заданная основность конечного шлака @Html.RadioButton("target", "1")</h4>
+            <h4>Минимум серы в чугуне @Html.RadioButton("target", "2")</h4>
+            <h4>Минимум расхода кокса @Html.RadioButton("target", "3")</h4>
+            <h4>Минимум градиента вязкости конечного шлака @Html.RadioButton("target", "4")</h4>
+            <h4>Максимум производительности @Html.RadioButton("target", "5")</h4>
+        </div>
+        <div class="col-md-4">
+            <h3>Управляющее воздействие</h3>
+            <h4>Агломерат ММК и окатыши ССГОК @Html.RadioButton("vozdeistv", "1")</h4>
+            <h4>Агломерат ММК и окатыши Лебединские @Html.RadioButton("vozdeistv", "2")</h4>
+            <h4>Агломерат ММК и окатыши Кончарские @Html.RadioButton("vozdeistv", "3")</h4>
+            <h4>Агломерат ММК и окатыши Михайловские @Html.RadioButton("vozdeistv", "4")</h4>
+        </div>
+    </div>
+
+    <p>
+
+        <input type="submit" value="Посчитать соотношения ЖРМ" id="bt_CalcZhrm" />
+
+    </p>
+}
+
+<hr />
+<table>
+    <tr>
+        <td>Результат расчета, доля в проектном периоде:</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Окатыши ССГОК</td>
+        <td>@Html.TextBox("vzskkonshlakmax", "0,079")</td>
+    </tr>
+    <tr>
+        <td>Окатыши Лебединские</td>
+        <td>@Html.TextBox("vzskkonshlakmax", "0,000")</td>
+    </tr>
+    <tr>
+        <td>Окатыши Качанарские</td>
+        <td>@Html.TextBox("vzskkonshlakmax", "0,000")</td>
+    </tr>
+    <tr>
+        <td>Окатыши Михайловские</td>
+        <td>@Html.TextBox("vzskkonshlakmax", "0,038")</td>
+    </tr>
+</table>
+
+
