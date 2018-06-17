@@ -158,7 +158,7 @@ namespace calcOptimalZRM
             inPath = fi.FullName;
 
             this._excelApp = new Application();
-            this._excelApp.Visible = true;
+            this._excelApp.Visible = false;
             //Filename UpdateLinks, ReadOnly, Format,         Password, WriteResPassword, IgnoreReadOnlyRecommended, Origin, Delimiter, Editable, Notify, Converter, AddToMru, Local, CorruptLoad
             if (readOnly == false)
             {
@@ -176,7 +176,7 @@ namespace calcOptimalZRM
 
             //.Workbooks.Add(Type.Missing);
             ChangeWorkSheet(1);
-            this._excelApp.Visible = true;
+            this._excelApp.Visible = false;
         }
 
         // Деструктор
@@ -214,7 +214,7 @@ namespace calcOptimalZRM
 
         public void Write(Int32 inRowIndex, Int32 inColumnIndex, Object inValue)
         {
-            this._excelApp.Visible = true;
+            this._excelApp.Visible = false;
             ((Range)_workSheet.Cells[inRowIndex, inColumnIndex]).Value2 = inValue;
         }
        
@@ -357,9 +357,10 @@ namespace calcOptimalZRM
         public void RunMacs(string name)
         {
             var exApp = this._excelApp;
-            exApp.Visible = true;
-            exApp.ScreenUpdating = true;
+            exApp.Visible = false;
+            exApp.ScreenUpdating = false;
             exApp.Run((object) name); 
+            
         }
 
         public void SaveFile()

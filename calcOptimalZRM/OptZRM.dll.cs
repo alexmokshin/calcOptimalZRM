@@ -993,6 +993,7 @@ namespace calcOptimalZRM
             //exc.Write(31, 2, 0);
             //exc.Write(32, 2, 0);
             exc.RunMacs("ОптимизацияСоотношениеЖРМ");
+            
             Thread.Sleep(5000);
             okatSsgok = exc.GetValue("B29");
             okatLebedinsk = exc.GetValue("B30");

@@ -175,11 +175,6 @@
       <DependentUpon>testEfModelFirst.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DomCehModel.cs" />
-    <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\OptShihtDC_HimZolaKoks_Load1_Result.cs">
       <DependentUpon>testEfModelFirst.tt</DependentUpon>
     </Compile>
@@ -189,6 +184,7 @@
     <Compile Include="Models\OptShihtDC_Shihta_Load_Result.cs">
       <DependentUpon>testEfModelFirst.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ParamShlakAfterCalc.cs" />
     <Compile Include="Models\testEfModelFirst.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -224,10 +220,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
     <Content Include="Models\testEfModelFirst.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>testEfModelFirst.Context.cs</LastGenOutput>
@@ -259,7 +251,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Content\Оптимальная доменная шихта 2010_.xlt" />
+    <Content Include="Content\Оптимальная доменная шихта 2010_2.xlsm" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

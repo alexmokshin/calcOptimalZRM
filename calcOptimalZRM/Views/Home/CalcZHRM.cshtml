@@ -8,52 +8,52 @@
     ViewBag.Title = "CalcZHRM";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@Html.ActionLink("Экспорт в Excel", "ExportExcel", "Home")
 @*<h3>Вариант 1</h3>
-@using (Html.BeginForm("DbModel", "Home"))
-{
-    <input type="submit" value="Перейти на страницу модели" id="bt_CalcZhrm" background=@Server.MapPath("~/Content/"+"spirin.jpg") />
-}*@
+    @using (Html.BeginForm("DbModel", "Home"))
+    {
+        <input type="submit" value="Перейти на страницу модели" id="bt_CalcZhrm" background=@Server.MapPath("~/Content/"+"spirin.jpg") />
+    }*@
 <h3>Вариант 2</h3>
 @Html.ActionLink("Перейти к промежуточным данным", "DbModel", "Home");
 @*
-<h3>Вариант 3</h3>
-@Html.ActionLink("Перейти на страницу модели", "DbModel", null, new { @class= ".btn-primary-new" })
-<h3>Вариант 4</h3>
-<a href='@Url.Action("DbModel", "Home")'>
-    <img src="~/Content/spirin.jpg" height="200" width="200" />
-    <alt>Рассчитать</alt>*@
-    
+    <h3>Вариант 3</h3>
+    @Html.ActionLink("Перейти на страницу модели", "DbModel", null, new { @class= ".btn-primary-new" })
+    <h3>Вариант 4</h3>
+    <a href='@Url.Action("DbModel", "Home")'>
+        <img src="~/Content/spirin.jpg" height="200" width="200" />
+        <alt>Рассчитать</alt>*@
+
 
 <details>
-<summary><h3>Промежуточные данные</h3></summary>
-<table class="table">
-    <tr>
-        <th>
-            Дата
-        </th>
-        <th>
-            Параметр
-        </th>
-        <th>
-            Значение
-        </th>
-    </tr>
-    @foreach (var item in ViewBag.ParamsPech)
-    {
+    <summary><h3>Промежуточные данные</h3></summary>
+    <table class="table">
         <tr>
             <th>
-                @item.Pechdate
+                Дата
             </th>
             <th>
-                @item.Descr
+                Параметр
             </th>
             <th>
-                @item.Val
+                Значение
             </th>
         </tr>
-    }
-</table>
+        @foreach (var item in ViewBag.ParamsPech)
+        {
+            <tr>
+                <th>
+                    @item.Pechdate
+                </th>
+                <th>
+                    @item.Descr
+                </th>
+                <th>
+                    @item.Val
+                </th>
+            </tr>
+        }
+    </table>
 </details>
 @using (Html.BeginForm("ResultCalcZRM", "Home", FormMethod.Post))
 {
@@ -67,7 +67,7 @@
         <tr>
             <td>Производительность доменной печи, т/сутки</td>
             <td>
-                @Html.TextBox("proizv", Math.Round((double)(ViewBag.DomCehPar.proizvDomPechModel),3))
+                @Html.TextBox("proizv", Math.Round((double)(ViewBag.DomCehPar.proizvDomPechModel), 3))
             </td>
         </tr>
         <tr>
@@ -128,7 +128,7 @@
             </td>
             <td>
                 @*@Html.TextBox("vzskkonshlakzad", (double?)Math.Round((double)(ViewBag.Vvod.vzskkonshlakzad), 3), new { @class = "form-control" })*@
-                
+
             </td>
         </tr>
         <tr>
@@ -153,63 +153,54 @@
                 Вязкость конечного шлака при 1450 С, пуаз
             </td>
             <td>
-                
+
                 @Html.TextBox("vzskkonshlak1450", Math.Round((double)(ViewBag.Vvod.vzskkonshlak1450), 3), new { @class = "form-control" })
             </td>
             <td>
-               
+
                 @Html.TextBox("vzskkonshlakmin1450", Math.Round((double)(ViewBag.Vvod.vzskkonshlakmin1450), 3), new { @class = "form-control" })
             </td>
             <td>
-            
+
                 @Html.TextBox("vzskkonshlakmax1450", Math.Round((double)(ViewBag.Vvod.vzskkonshlakmax1450), 3), new { @class = "form-control" })
             </td>
-            <td>
-                
-                
-            </td>
+            <td></td>
         </tr>
         <tr>
             <td>
                 Градиент вязкости конечного шлака, пуаз/град. С
             </td>
             <td>
-             
+
                 @Html.TextBox("grdvzkkkonshlak", Math.Round((double)(ViewBag.Vvod.grdvzkkkonshlak), 3), new { @class = "form-control" })
             </td>
             <td>
-              
+
                 @Html.TextBox("grdvzkkkonshlakmin", Math.Round((double)(ViewBag.Vvod.grdvzkkkonshlakmin), 3), new { @class = "form-control" })
             </td>
             <td>
-            
+
                 @Html.TextBox("grdvzkkkonshlakmax", Math.Round((double)(ViewBag.Vvod.grdvzkkkonshlakmax), 3), new { @class = "form-control" })
             </td>
-            <td>
-                
-                
-            </td>
+            <td></td>
         </tr>
         <tr>
             <td>
                 Доля агломерата ММК
             </td>
             <td>
-                
+
                 @Html.TextBox("aglmmknow", Math.Round((double)(ViewBag.Vvod.aglmmknow), 3), new { @class = "form-control" })
             </td>
             <td>
-               
+
                 @Html.TextBox("aglmmkmin", Math.Round((double)(ViewBag.Vvod.aglmmkmin), 3), new { @class = "form-control" })
             </td>
             <td>
-                
+
                 @Html.TextBox("aglmmkmax", Math.Round((double)(ViewBag.Vvod.aglmmkmax), 3), new { @class = "form-control" })
             </td>
-            <td>
-                
-              
-            </td>
+            <td></td>
         </tr>
         <tr>
             <td>
@@ -224,14 +215,13 @@
             <td>
                 @Html.TextBox("summdoleyzrmmax", null, new { @class = "form-control" })
             </td>
-            <td>
-            </td>
+            <td></td>
         </tr>
     </table>
     <div class="row">
         <div class="col-md-4">
             <h3>Учитывать ограничения</h3>
-            <h4>Вязкость конечного шлака при температуре шлака @Html.CheckBox("first_concl",false)@*@Html.RadioButton("ogr", "1")*@</h4>
+            <h4>Вязкость конечного шлака при температуре шлака @Html.CheckBox("first_concl", false)@*@Html.RadioButton("ogr", "1")*@</h4>
             <h4>Основность конечного шлака, CaO\SiO2 (диапазон или задано) @Html.CheckBox("second_concl", false)@*@Html.RadioButton("ogr", "2")*@</h4>
             <h4>Вязкость конечного шлака при температуре 1450С @Html.CheckBox("third_concl", false)@*@Html.RadioButton("ogr", "3")*@</h4>
             <h4>Градиент вязкости конечного шлака @Html.CheckBox("fourth_concl", false)@*@Html.RadioButton("ogr", "4")*@</h4>
@@ -264,26 +254,26 @@
 
 <hr />
 @*<table>
-    <tr>
-        <td>Результат расчета, доля в проектном периоде:</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Окатыши ССГОК</td>
-        <td>@Html.TextBox("vzskkonshlakmax", "0,079")</td>
-    </tr>
-    <tr>
-        <td>Окатыши Лебединские</td>
-        <td>@Html.TextBox("vzskkonshlakmax", "0,000")</td>
-    </tr>
-    <tr>
-        <td>Окатыши Качанарские</td>
-        <td>@Html.TextBox("vzskkonshlakmax", "0,000")</td>
-    </tr>
-    <tr>
-        <td>Окатыши Михайловские</td>
-        <td>@Html.TextBox("vzskkonshlakmax", "0,038")</td>
-    </tr>
-</table>*@
+        <tr>
+            <td>Результат расчета, доля в проектном периоде:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Окатыши ССГОК</td>
+            <td>@Html.TextBox("vzskkonshlakmax", "0,079")</td>
+        </tr>
+        <tr>
+            <td>Окатыши Лебединские</td>
+            <td>@Html.TextBox("vzskkonshlakmax", "0,000")</td>
+        </tr>
+        <tr>
+            <td>Окатыши Качанарские</td>
+            <td>@Html.TextBox("vzskkonshlakmax", "0,000")</td>
+        </tr>
+        <tr>
+            <td>Окатыши Михайловские</td>
+            <td>@Html.TextBox("vzskkonshlakmax", "0,038")</td>
+        </tr>
+    </table>*@
 
 

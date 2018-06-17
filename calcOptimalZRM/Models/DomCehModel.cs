@@ -140,31 +140,31 @@ namespace calcOptimalZRM.Models
 
     public class Okatishi
     {
-        private string _okatSsgokModel;
+        private double _okatSsgokModel;
 
-        public string okatSsgokModel
+        public double okatSsgokModel
         {
             get { return _okatSsgokModel; }
             set { _okatSsgokModel = value; }
         }
 
-        private string _okatLebedinskModel;
-        public string okatLebedinskModel
+        private double _okatLebedinskModel;
+        public double okatLebedinskModel
         {
             get { return _okatLebedinskModel; }
             set { _okatLebedinskModel = value; }
         }
 
-        private string _okatKachanarskieModel;
+        private double _okatKachanarskieModel;
 
-        public string okatKachanarskieModel
+        public double okatKachanarskieModel
         {
             get { return _okatKachanarskieModel; }
             set { _okatKachanarskieModel = value; }
         }
 
-        private string _okatMihailovskModel;
-        public string okatMihailovskModel
+        private double _okatMihailovskModel;
+        public double okatMihailovskModel
         {
             get { return _okatMihailovskModel; }
             set { _okatMihailovskModel = value; }
