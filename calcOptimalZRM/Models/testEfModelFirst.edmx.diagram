@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="0cab42ee26f14492bccc544e66a7f0cc" Name="Diagram1" >
-        <EntityTypeShape EntityType="ReportModel.DC_NSI_Pech" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ReportModel.DC_NSI_Pech" Width="1.5" PointX="7.625" PointY="0.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

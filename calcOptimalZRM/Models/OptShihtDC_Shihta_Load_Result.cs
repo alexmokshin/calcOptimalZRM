@@ -7,33 +7,55 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel;
+
 namespace calcOptimalZRM.Models
 {
     using System;
     
     public partial class OptShihtDC_Shihta_Load_Result
     {
+        [DisplayName("Дата")]
         public System.DateTime dtFirstDay { get; set; }
+        [DisplayName("ДП, №")]
         public byte Номер_печи { get; set; }
         public Nullable<short> Код_материала { get; set; }
         public Nullable<byte> Тип_материала { get; set; }
+        [DisplayName("Материал")]
         public string Материал { get; set; }
+        [DisplayName("Расход, кг/т чугуна")]
         public Nullable<decimal> Расход__кг_т_чугуна { get; set; }
+        [DisplayName("Доля, %")]
         public Nullable<decimal> Доля { get; set; }
+        [DisplayName("Fe, %")]
         public Nullable<decimal> Fe___ { get; set; }
+        [DisplayName("FeO, %")]
         public Nullable<decimal> FeO___ { get; set; }
+        [DisplayName("Fe2O3, %")]
         public Nullable<decimal> Fe2O3___ { get; set; }
+        [DisplayName("SiO2, %")]
         public Nullable<decimal> SiO2___ { get; set; }
+        [DisplayName("Al2O3, %")]
         public Nullable<decimal> Al2O3___ { get; set; }
+        [DisplayName("CaO, %")]
         public Nullable<decimal> CaO___ { get; set; }
+        [DisplayName("MgO, %")]
         public Nullable<decimal> MgO___ { get; set; }
+        [DisplayName("P, %")]
         public Nullable<decimal> P___ { get; set; }
+        [DisplayName("S, %")]
         public Nullable<decimal> S___ { get; set; }
+        [DisplayName("MnO, %")]
         public Nullable<decimal> MnO___ { get; set; }
+        [DisplayName("ZnO, %")]
         public Nullable<decimal> ZnO___ { get; set; }
+        [DisplayName("PPP, %")]
         public Nullable<decimal> PPP___ { get; set; }
+        [DisplayName("H2O, %")]
         public Nullable<decimal> H2O___ { get; set; }
+        [DisplayName("TiO2, %")]
         public Nullable<decimal> TiO2___ { get; set; }
+        [DisplayName("Cr, %")]
         public Nullable<decimal> Cr___ { get; set; }
     }
 }

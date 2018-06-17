@@ -4,11 +4,11 @@
     ViewBag.Title = "DbModel";
 }
 
-<h2>DbModel</h2>
-
-<p>
+<h2>Промежуточные данные</h2>
+<h3>Химический состав ЖРМ</h3>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
@@ -17,12 +17,12 @@
         <th>
             @Html.DisplayNameFor(model => model.Номер_печи)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Код_материала)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Тип_материала)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Материал)
         </th>
@@ -88,12 +88,12 @@
         <td>
             @item.Номер_печи
         </td>
-        <td>
+        @*<td>
             @item.Код_материала
         </td>
         <td>
             @item.Тип_материала
-        </td>
+        </td>*@
         <td>
             @item.Материал
         </td>
@@ -148,11 +148,11 @@
         <td>
             @item.Cr___
         </td>
-        <td>
+        @*<td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
+        </td>*@
     </tr>
 }
 

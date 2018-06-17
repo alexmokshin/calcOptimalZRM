@@ -59,6 +59,10 @@
             <Parameter Name="debug" Mode="In" Type="Byte" />
           </FunctionImport>
           <EntitySet Name="DC_NSI_Pech" EntityType="ReportModel.DC_NSI_Pech" />
+          <FunctionImport Name="OptShihtDC_HimZolaKoks_Load1" ReturnType="Collection(ReportModel.OptShihtDC_HimZolaKoks_Load1_Result)">
+            <Parameter Name="dt" Mode="In" Type="DateTime" />
+            <Parameter Name="debug" Mode="In" Type="Byte" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="OptShihtDC_Param_Load_Result">
           <Property Type="Byte" Name="IdDescr" Nullable="false" />
@@ -108,13 +112,22 @@
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="actual" Type="Boolean" Nullable="false" />
         </EntityType>
+        <ComplexType Name="OptShihtDC_HimZolaKoks_Load1_Result">
+          <Property Type="String" Name="Descr" Nullable="true" MaxLength="50" />
+          <Property Type="Single" Name="Fe2O3" Nullable="false" />
+          <Property Type="Single" Name="CaO" Nullable="false" />
+          <Property Type="Single" Name="SiO2" Nullable="false" />
+          <Property Type="Single" Name="MgO" Nullable="false" />
+          <Property Type="Single" Name="Al2O3" Nullable="false" />
+          <Property Type="Single" Name="TiO2" Nullable="false" />
+          <Property Type="Single" Name="MnO" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище ReportModelContainer" CdmEntityContainer="testReportEntities" >
-          <FunctionImportMapping FunctionImportName="OptShihtDC_HimZolaKoks_Load" FunctionName="Хранилище ReportModel.OptShihtDC_HimZolaKoks_Load" />
           <FunctionImportMapping FunctionImportName="OptShihtDC_Param_Load" FunctionName="Хранилище ReportModel.OptShihtDC_Param_Load">
             <ResultMapping>
               <ComplexTypeMapping TypeName="ReportModel.OptShihtDC_Param_Load_Result">
@@ -171,6 +184,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="OptShihtDC_HimZolaKoks_Load1" FunctionName="Хранилище ReportModel.OptShihtDC_HimZolaKoks_Load">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ReportModel.OptShihtDC_HimZolaKoks_Load1_Result">
+                <ScalarProperty Name="Descr" ColumnName="Descr" />
+                <ScalarProperty Name="Fe2O3" ColumnName="Fe2O3" />
+                <ScalarProperty Name="CaO" ColumnName="CaO" />
+                <ScalarProperty Name="SiO2" ColumnName="SiO2" />
+                <ScalarProperty Name="MgO" ColumnName="MgO" />
+                <ScalarProperty Name="Al2O3" ColumnName="Al2O3" />
+                <ScalarProperty Name="TiO2" ColumnName="TiO2" />
+                <ScalarProperty Name="MnO" ColumnName="MnO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

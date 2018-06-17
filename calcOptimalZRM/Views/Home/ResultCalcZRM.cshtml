@@ -1,0 +1,160 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Соотношение ЖРМ. Результат расчета, доля в проектном периоде";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Соотношение ЖРМ. Результат расчета, доля в проектном периоде</h2>
+<table>
+    <tr>
+        <td>Результат расчета, доля в проектном периоде:</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Окатыши ССГОК</td>
+        @*<td>@Html.TextBox("vzskkonshlakmax", ViewBag.Okatish.okatSsgokModel)</td>*@
+        <td>@Html.Raw(Math.Round((double)(ViewBag.Okatish.okatSsgokModel),3)) </td>
+    </tr>
+    <tr>
+        <td>Окатыши Лебединские</td>
+        @*<td>@Html.TextBox("vzskkonshlakmax", "0,000")</td>*@
+        <td>@Html.Raw(Math.Round((double)(ViewBag.Okatish.okatLebedinskModel),3))</td>
+    </tr>
+    <tr>
+        <td>Окатыши Качанарские</td>
+        @*<td>@Html.TextBox("vzskkonshlakmax", "0,000")</td>*@
+        <td>@Html.Raw(Math.Round((double)(ViewBag.Okatish.okatKachanarskieModel),3))</td>
+    </tr>
+    <tr>
+        <td>Окатыши Михайловские</td>
+        @*<td>@Html.TextBox("vzskkonshlakmax", "0,195")</td>*@
+        <td>@Html.Raw(Math.Round((double)(ViewBag.Okatish.okatMihailovskModel),3))</td>
+    </tr>
+</table>
+<hr/>
+<h2>Новые параметры шлака, при новом соотношении ЖРМ</h2>
+<table>
+    <tr>
+
+        <td><b>Показатель, ед. измерения</b></td>
+        <td><b>Величина в проектном периоде</b></td>
+        <td><b>минимум</b></td>
+        <td><b>максимум</b></td>
+        <td><b>задано</b></td>
+    </tr>
+    <tr>
+        <td>
+            Вязкость конечного шлака при 1550 С, пуаз
+        </td>
+        <td>
+            @Html.TextBox("vzskkonshlak", Math.Round((double)(ViewBag.Vihod.vzskkonshlak), 3), new { @class = "form-control" })
+        </td>
+        <td>
+            @Html.TextBox("vzskkonshlakmin", Math.Round((double)(ViewBag.Vihod.vzskkonshlakmin), 3), new { @class = "form-control" })
+        </td>
+        <td>
+            @Html.TextBox("vzskkonshlakmax", Math.Round((double)(ViewBag.Vihod.vzskkonshlakmax), 3), new { @class = "form-control" })
+        </td>
+        <td>
+            @Html.TextBox("vzskkonshlakzad", null, new { @class = "form-control" })
+                
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Основность конечного шлака (CaO/SiO2)
+        </td>
+        <td>
+            @Html.TextBox("osnkonshlack", Math.Round((double)(ViewBag.Vihod.osnkonshlack), 3), new { @class = "form-control" })
+        </td>
+        <td>
+            @Html.TextBox("onskonshlakmin", Math.Round((double)(ViewBag.Vihod.onskonshlakmin), 3), new { @class = "form-control" })
+        </td>
+        <td>
+            @Html.TextBox("osnkonshlakmax", Math.Round((double)(ViewBag.Vihod.osnkonshlakmax), 3), new { @class = "form-control" })
+        </td>
+        <td>
+            @Html.TextBox("onskonshlakkzad", Math.Round((double)(ViewBag.Vihod.onskonshlakkzad), 3), new { @class = "form-control" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Вязкость конечного шлака при 1450 С, пуаз
+        </td>
+        <td>
+                
+            @Html.TextBox("vzskkonshlak1450", Math.Round((double)(ViewBag.Vihod.vzskkonshlak1450), 3), new { @class = "form-control" })
+        </td>
+        <td>
+               
+            @Html.TextBox("vzskkonshlakmin1450", Math.Round((double)(ViewBag.Vihod.vzskkonshlakmin1450), 3), new { @class = "form-control" })
+        </td>
+        <td>
+            
+            @Html.TextBox("vzskkonshlakmax1450", Math.Round((double)(ViewBag.Vihod.vzskkonshlakmax1450), 3), new { @class = "form-control" })
+        </td>
+        <td>
+                
+                
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Градиент вязкости конечного шлака, пуаз/град. С
+        </td>
+        <td>
+             
+            @Html.TextBox("grdvzkkkonshlak", Math.Round((double)(ViewBag.Vihod.grdvzkkkonshlak), 3), new { @class = "form-control" })
+        </td>
+        <td>
+              
+            @Html.TextBox("grdvzkkkonshlakmin", Math.Round((double)(ViewBag.Vihod.grdvzkkkonshlakmin), 3), new { @class = "form-control" })
+        </td>
+        <td>
+            
+            @Html.TextBox("grdvzkkkonshlakmax", Math.Round((double)(ViewBag.Vihod.grdvzkkkonshlakmax), 3), new { @class = "form-control" })
+        </td>
+        <td>
+                
+                
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Доля агломерата ММК
+        </td>
+        <td>
+                
+            @Html.TextBox("aglmmknow", Math.Round((double)(ViewBag.Vihod.aglmmknow), 3), new { @class = "form-control" })
+        </td>
+        <td>
+               
+            @Html.TextBox("aglmmkmin", Math.Round((double)(ViewBag.Vihod.aglmmkmin), 3), new { @class = "form-control" })
+        </td>
+        <td>
+                
+            @Html.TextBox("aglmmkmax", Math.Round((double)(ViewBag.Vihod.aglmmkmax), 3), new { @class = "form-control" })
+        </td>
+        <td>
+                
+              
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Сумма долей всех ЖРМ
+        </td>
+        <td>
+            @Html.TextBox("summdoleyzrmnow", Math.Round((double)(ViewBag.Vihod.summdoleyzrmnow), 3), new { @class = "form-control" })
+        </td>
+        <td>
+            @Html.TextBox("summdoleyzrmmin", null, new { @class = "form-control" })
+        </td>
+        <td>
+            @Html.TextBox("summdoleyzrmmax", null, new { @class = "form-control" })
+        </td>
+        <td>
+        </td>
+    </tr>
+</table>

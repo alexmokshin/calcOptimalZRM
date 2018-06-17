@@ -1,14 +1,20 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
+@*тест*@
+<div class="alert alert-success alert-dismissible">
+    <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Success!</strong> Indicates a successful or positive action.
+</div>
+@*энд тест*@
+<img src=@Server.MapPath("~/Content/"+"spirin.jpg") class="img-thumbnail" alt="Cinque Terre"> 
 <div class="jumbotron">
     
     <p class="lead">Вы вошли как @Environment.UserName</p>
     <p>Вы находитесь в сети @Environment.UserDomainName</p>
-    <p><a href="@Url.Action("CalcZHRM","Home")" class="btn btn-primary btn-lg">Перейти к расчету ЖРМ &raquo;</a></p>
+    <p><a href="@Url.Action("PickData","Home")" class="btn btn-primary btn-lg">Перейти к расчету ЖРМ &raquo;</a></p>
 </div>
-@Html.ActionLink("Нормалны жи","PickData","Home")
+
 
 <div class="row">
     <div class="col-md-6">

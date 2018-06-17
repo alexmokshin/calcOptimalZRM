@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using Microsoft.Office.Interop.Excel;
+
 namespace calcOptimalZRM.Models
 {
     using System;
@@ -19,6 +21,7 @@ namespace calcOptimalZRM.Models
     {
         public testReportEntities()
             : base("name=testReportEntities")
+            
         {
         }
     
@@ -29,18 +32,18 @@ namespace calcOptimalZRM.Models
     
         public virtual DbSet<DC_NSI_Pech> DC_NSI_Pech { get; set; }
     
-        public virtual int OptShihtDC_HimZolaKoks_Load(Nullable<System.DateTime> dt, Nullable<byte> debug)
-        {
-            var dtParameter = dt.HasValue ?
-                new ObjectParameter("dt", dt) :
-                new ObjectParameter("dt", typeof(System.DateTime));
+        //public virtual int OptShihtDC_HimZolaKoks_Load(Nullable<System.DateTime> dt, Nullable<byte> debug)
+        //{
+        //    var dtParameter = dt.HasValue ?
+        //        new ObjectParameter("dt", dt) :
+        //        new ObjectParameter("dt", typeof(System.DateTime));
     
-            var debugParameter = debug.HasValue ?
-                new ObjectParameter("debug", debug) :
-                new ObjectParameter("debug", typeof(byte));
+        //    var debugParameter = debug.HasValue ?
+        //        new ObjectParameter("debug", debug) :
+        //        new ObjectParameter("debug", typeof(byte));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("OptShihtDC_HimZolaKoks_Load", dtParameter, debugParameter);
-        }
+        //    return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("OptShihtDC_HimZolaKoks_Load", dtParameter, debugParameter);
+        //}
     
         public virtual ObjectResult<OptShihtDC_Param_Load_Result> OptShihtDC_Param_Load(Nullable<System.DateTime> dt, Nullable<byte> debug)
         {
@@ -74,6 +77,19 @@ namespace calcOptimalZRM.Models
                 new ObjectParameter("debug", typeof(byte));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OptShihtDC_Shihta_Load_Result>("OptShihtDC_Shihta_Load", dtFirstDayParameter, nPechParameter, matTypeParameter, debugParameter);
+        }
+    
+        public virtual ObjectResult<OptShihtDC_HimZolaKoks_Load1_Result> OptShihtDC_HimZolaKoks_Load1(Nullable<System.DateTime> dt, Nullable<byte> debug)
+        {
+            var dtParameter = dt.HasValue ?
+                new ObjectParameter("dt", dt) :
+                new ObjectParameter("dt", typeof(System.DateTime));
+    
+            var debugParameter = debug.HasValue ?
+                new ObjectParameter("debug", debug) :
+                new ObjectParameter("debug", typeof(byte));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<OptShihtDC_HimZolaKoks_Load1_Result>("OptShihtDC_HimZolaKoks_Load1", dtParameter, debugParameter);
         }
     }
 }
